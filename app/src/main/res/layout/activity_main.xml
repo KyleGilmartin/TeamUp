@@ -112,11 +112,11 @@
                 android:id="@+id/layoutGoal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_margin="35dp"
                 android:background="@drawable/white_rectangle_background"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="15dp"
+                android:padding="17dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -146,12 +146,13 @@
                 android:id="@+id/layoutFlower"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_margin="35dp"
                 android:background="@drawable/white_rectangle_background"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/layoutGoal"
                 app:layout_constraintTop_toTopOf="parent">
 
 
