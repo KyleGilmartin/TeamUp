@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1005704039219",
+    "project_id": "teamup-a2ba1",
+    "storage_bucket": "teamup-a2ba1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005704039219:android:4e7761a9095da0b6160c46",
+        "android_client_info": {
+          "package_name": "edu.kylegilmartin.teamup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005704039219-a4tljrkcvj4poqkavf2becnlg7kn584u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNhO9pyeoplgtjOMNWThLWKdOMgwCbjY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005704039219-a4tljrkcvj4poqkavf2becnlg7kn584u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
