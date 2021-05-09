@@ -49,30 +49,25 @@ public class MainActivity extends AppCompatActivity {
         userID = user.getUid();
 
 //        final TextView greetingTextView = findViewById(R.id.greeting);
-//        final TextView fullnameTextView = findViewById(R.id.fullname);
+         final TextView fullnameTextView = findViewById(R.id.textUsername);
 //        final TextView emailTextView = findViewById(R.id.emailAddress);
 //        final TextView ageTextView = findViewById(R.id.age);
 
-//        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                User userProfile = snapshot.getValue(User.class);
-//                if(userProfile != null){
-//                    String fullName = userProfile.fullName;
-//                    String email = userProfile.email;
-//                    String age = userProfile.age;
-//
-//                    greetingTextView.setText("Welcome, " + fullName + "!");
-//                    fullnameTextView.setText(fullName);
-//                    emailTextView.setText(email);
-//                    ageTextView.setText(age);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(MainActivity.this, "Something bad happened!", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile = snapshot.getValue(User.class);
+                if(userProfile != null){
+                    String fullName = userProfile.fullName;
+                    fullnameTextView.setText(fullName);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "Something bad happened!", Toast.LENGTH_SHORT).show();
+           }
+       });
     }
 }
