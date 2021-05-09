@@ -63,6 +63,7 @@ public class Register extends AppCompatActivity {
         String password = editTextPassword.getText().toString().trim();
         String age = editTextAge.getText().toString().trim();
         String fullname = editTextFullName.getText().toString().trim();
+        String admin = "0";
 
         if(fullname.isEmpty()){
             editTextFullName.setError("Full name is required!");
@@ -108,7 +109,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    User user = new User(fullname,age,email);
+                    User user = new User(fullname,age,email,admin);
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -117,7 +118,7 @@ public class Register extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 Toast.makeText(Register.this, "User is registered", Toast.LENGTH_SHORT).show();
                                 processBar.setVisibility(View.GONE);
-                                Intent i = new Intent(Register.this, MainActivity.class);
+                                Intent i = new Intent(Register.this, Login.class);
                                 startActivity(i);
                             }else {
                                 Toast.makeText(Register.this, "User is not registered", Toast.LENGTH_SHORT).show();
