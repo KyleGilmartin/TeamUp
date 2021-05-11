@@ -16,14 +16,6 @@ public class EditUserProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_user_profile);
-        save = findViewById(R.id.BtnProfileSave);
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(EditUserProfile.this, UserProfile.class);
-                startActivity(i);
-                finish();
-            }
-        });
+
     }
 }
