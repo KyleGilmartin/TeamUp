@@ -64,6 +64,9 @@ public class Register extends AppCompatActivity {
         String age = editTextAge.getText().toString().trim();
         String fullname = editTextFullName.getText().toString().trim();
         String admin = "0";
+        String kd = "0";
+        String consoletype = "na";
+        String nameid = "na";
 
         if(fullname.isEmpty()){
             editTextFullName.setError("Full name is required!");
@@ -109,7 +112,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    User user = new User(fullname,age,email,admin);
+                    User user = new User(fullname,age,email,admin,kd,consoletype,nameid);
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

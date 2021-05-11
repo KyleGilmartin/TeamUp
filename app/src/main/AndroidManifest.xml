@@ -9,16 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TeamUp">
-        <activity android:name=".admin.AdminMain"></activity>
-        <activity android:name=".LoginRegister.ForgotPassword" />
-        <activity android:name=".SplashScreen.SplashScreen" />
-        <activity android:name=".LoginRegister.Register" />
-        <activity android:name=".LoginRegister.Login">
+        <activity android:name=".UserDetails.UserProfile">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".admin.AdminMain" />
+        <activity android:name=".LoginRegister.ForgotPassword" />
+        <activity android:name=".SplashScreen.SplashScreen" />
+        <activity android:name=".LoginRegister.Register" />
+        <activity android:name=".LoginRegister.Login">
+
         </activity>
         <activity android:name=".MainActivity" />
     </application>

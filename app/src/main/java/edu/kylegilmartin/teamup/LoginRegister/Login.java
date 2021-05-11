@@ -14,13 +14,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import edu.kylegilmartin.teamup.MainActivity;
 import edu.kylegilmartin.teamup.R;
+import edu.kylegilmartin.teamup.admin.AdminMain;
 
 public class Login extends AppCompatActivity {
 
@@ -40,6 +47,7 @@ public class Login extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
+
 
         signin = findViewById(R.id.signIn);
         signin.setOnClickListener(new View.OnClickListener() {
@@ -101,9 +109,9 @@ public class Login extends AppCompatActivity {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if(user.isEmailVerified()){
                         progressBar.setVisibility(View.GONE);
+                        checkUserAccessLevel(AuthResult.getUser().getUid());
 
-                        Intent i = new Intent(Login.this, MainActivity.class);
-                        startActivity(i);
+
                     }
                     else {
                         progressBar.setVisibility(View.GONE);
@@ -119,4 +127,22 @@ public class Login extends AppCompatActivity {
         });
 
     }
+
+    private void checkUserAccessLevel() {
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
+        ref.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+            @Override
+            public void onSuccess(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue(Boolean.parseBoolean("1")) != null) {
+                    Intent i = new Intent(Login.this, AdminMain.class);
+                    startActivity(i);
+                } else {
+                    Intent i = new Intent(Login.this, MainActivity.class);
+                    startActivity(i);
+                }
+
+            }
+        });
+    };
 }

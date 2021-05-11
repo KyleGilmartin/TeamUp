@@ -8,6 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+// profile page
+    <color name="colorPrimary">#FF9301</color>
+    <color name="colorPrimaryDark">#FF3E2D</color>
+    <color name="colorSecondary">#E75370</color>
+    <color name="colorSecondaryDark">#C35CEF</color>
+
     <color name="colorPrimarymainscreen">#2BCC6F</color>
     <color name="colorPrimarymainscreenDark">#2BCC6F</color>
     <color name="colorPrimarymainscreenAccent">#333333</color>
