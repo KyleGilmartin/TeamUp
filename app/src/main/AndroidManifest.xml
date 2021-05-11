@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TeamUp">
-        <activity android:name=".UserDetails.EditUserProfile"></activity>
-        <activity android:name=".UserDetails.UserProfile">
-
-        </activity>
+        <activity android:name=".Settings.Settings"></activity>
+        <activity android:name=".Settings.FAQ" />
+        <activity android:name=".Settings.Rules" />
+        <activity android:name=".UserDetails.EditUserProfile" />
+        <activity android:name=".UserDetails.UserProfile" />
         <activity android:name=".admin.AdminMain" />
         <activity android:name=".LoginRegister.ForgotPassword" />
         <activity android:name=".SplashScreen.SplashScreen" />

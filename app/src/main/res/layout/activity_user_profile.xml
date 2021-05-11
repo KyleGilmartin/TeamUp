@@ -9,252 +9,264 @@
 
 
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.4"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:background="@drawable/bg_top">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/example_img"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="fullname"
-            android:layout_marginTop="10dp"
-            style="@style/TextName"/>
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/changeProfile"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="-25dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginStart="80dp"
-        android:background="@drawable/bg_button_round">
-
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:padding="6dp"
-            android:layout_marginStart="7dp"
-            android:layout_gravity="center_vertical"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_settings"
-            android:background="@drawable/bg_circle"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edit profile"
-            android:layout_gravity="center"
-            android:gravity="center"
-            style="@style/TextButton"/>
-
-    </FrameLayout>
-
-
-
-
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true">
         <LinearLayout
-            android:isScrollContainer="true"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:background="@drawable/bg_top">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/example_img"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="fullname"
+                    android:layout_marginTop="10dp"
+                    style="@style/TextName"/>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/changeProfile"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="-25dp"
+                android:layout_marginEnd="80dp"
+                android:layout_marginStart="80dp"
+                android:background="@drawable/bg_button_round">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="4dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_email"/>
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="6dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_settings"
+                    android:background="@drawable/bg_circle"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit profile"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    style="@style/TextButton"/>
+
+            </FrameLayout>
+
+
+
+
+            <LinearLayout
+                android:isScrollContainer="true"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="14dp">
 
-                    <TextView
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="4dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_email"/>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="username_title"
-                        style="@style/TextBlackTitle"/>
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="username"
-                        style="@style/TextDescription"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="username_title"
+                            style="@style/TextBlackTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="username"
+                            style="@style/TextDescription"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="4dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_email"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="14dp">
 
-                    <TextView
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="4dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_email"/>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="email_title"
-                        style="@style/TextBlackTitle"/>
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="email"
-                        style="@style/TextDescription"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="email_title"
+                            style="@style/TextBlackTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="email"
+                            style="@style/TextDescription"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="4dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_email"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="14dp">
 
-                    <TextView
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="4dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_email"/>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="console_title"
-                        style="@style/TextBlackTitle"/>
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="console"
-                        style="@style/TextDescription"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="console_title"
+                            style="@style/TextBlackTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="console"
+                            style="@style/TextDescription"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="4dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_email"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="14dp">
 
-                    <TextView
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="4dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_email"/>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="nameid_title"
-                        style="@style/TextBlackTitle"/>
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="nameid"
-                        style="@style/TextDescription"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="nameid_title"
+                            style="@style/TextBlackTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="nameid"
+                            style="@style/TextDescription"/>
+
+                    </LinearLayout>
+
+
+
+
 
                 </LinearLayout>
-
-
-
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="4dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_email"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="14dp">
 
-                    <TextView
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="4dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_email"/>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="KD_title"
-                        style="@style/TextBlackTitle"/>
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="KD"
-                        style="@style/TextDescription"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="KD_title"
+                            style="@style/TextBlackTitle"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="KD"
+                            style="@style/TextDescription"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_marginBottom="300dp"
+                    android:src="@drawable/ic_settings"
+                    android:layout_marginTop="20dp"/>
+
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:src="@drawable/ic_settings"
-                android:layout_marginTop="20dp"/>
-
         </LinearLayout>
+    </ScrollView>
 
 
 
