@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -25,12 +26,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.kylegilmartin.teamup.MainActivity;
 import edu.kylegilmartin.teamup.R;
 import edu.kylegilmartin.teamup.admin.AdminMain;
 
 public class Login extends AppCompatActivity {
 
+    private static final String TAG = "Login";
     private TextView register,forgotpassword;
     private EditText editTextEmail,editTextPassword;
     private Button signin;
@@ -53,7 +58,7 @@ public class Login extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               userLogin();
+                userLogin();
             }
         });
 
@@ -109,7 +114,7 @@ public class Login extends AppCompatActivity {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if(user.isEmailVerified()){
                         progressBar.setVisibility(View.GONE);
-                        checkUserAccessLevel(AuthResult.User().getUid());
+                        checkUserAccessLevel(user.getUid());
 
 
                     }
@@ -118,7 +123,6 @@ public class Login extends AppCompatActivity {
                         user.sendEmailVerification();
                         Toast.makeText(Login.this, "Email verification has been sent", Toast.LENGTH_SHORT).show();
                     }
-
                 }else {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(Login.this, "Failed to login", Toast.LENGTH_SHORT).show();
@@ -128,23 +132,39 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void checkUserAccessLevel() {
 
+
+    public void checkUserAccessLevel(String id){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
-        ref.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue(Boolean.parseBoolean("1")) != null) {
-                    Intent i = new Intent(Login.this, AdminMain.class);
-                    startActivity(i);
-                    finish();
-                } else {
-                    Intent i = new Intent(Login.this, MainActivity.class);
-                    startActivity(i);
-                    finish();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<String> keys = new ArrayList<>();
+                for (DataSnapshot keyNode : snapshot.getChildren()) {
+                    try {
+                        if (keyNode.getKey().equals(id)) {
+                            User user = keyNode.getValue(User.class);
+                            if (user.admin.equals("1")) {
+                                Intent i = new Intent(Login.this, AdminMain.class);
+                                startActivity(i);
+                                finish();
+                            } else {
+                                Intent i = new Intent(Login.this, MainActivity.class);
+                                startActivity(i);
+                                finish();
+                            }
+                            break;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-    };
+    }
 }
