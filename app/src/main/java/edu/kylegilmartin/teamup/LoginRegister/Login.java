@@ -109,7 +109,8 @@ public class Login extends AppCompatActivity {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if(user.isEmailVerified()){
                         progressBar.setVisibility(View.GONE);
-                        checkUserAccessLevel(AuthResult.getUser().getUid());
+                        Intent i = new Intent(Login.this, MainActivity.class);
+                        startActivity(i);
 
 
                     }
