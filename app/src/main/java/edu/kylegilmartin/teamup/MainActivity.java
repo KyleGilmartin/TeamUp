@@ -2,12 +2,14 @@ package edu.kylegilmartin.teamup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,14 +25,17 @@ import com.google.firebase.database.ValueEventListener;
 import edu.kylegilmartin.teamup.LoginRegister.Login;
 import edu.kylegilmartin.teamup.LoginRegister.Register;
 import edu.kylegilmartin.teamup.LoginRegister.User;
+import edu.kylegilmartin.teamup.Settings.FAQ;
+import edu.kylegilmartin.teamup.Settings.Settings;
 import edu.kylegilmartin.teamup.UserDetails.UserProfile;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private Button logout;
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
+    private ImageView imageMenu;
 
 
     @Override
@@ -61,15 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        logout = findViewById(R.id.signOut);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent i = new Intent(MainActivity.this, Login.class);
-                startActivity(i);
-            }
-        });
+
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
@@ -96,5 +93,36 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Something bad happened!", Toast.LENGTH_SHORT).show();
            }
        });
+
+        imageMenu = findViewById(R.id.imageMenu);
+
+    }
+
+    public void showPopup(View v){
+        PopupMenu popupMenu = new PopupMenu(this, v);
+        popupMenu.setOnMenuItemClickListener(this);
+        popupMenu.inflate(R.menu.sidemenu);
+        popupMenu.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuSettings:
+                Intent a = new Intent(MainActivity.this, Settings.class);
+                startActivity(a);
+                return true;
+            case R.id.menuFAQ:
+                Intent b = new Intent(MainActivity.this, FAQ.class);
+                startActivity(b);
+                return true;
+            case R.id.menuLogout:
+                FirebaseAuth.getInstance().signOut();
+                Intent c = new Intent(MainActivity.this, Login.class);
+                startActivity(c);
+                return true;
+            default:
+                return true;
+        }
     }
 }

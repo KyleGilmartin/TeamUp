@@ -46,6 +46,7 @@
             android:id="@+id/imageMenu"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:onClick="showPopup"
             android:layout_marginEnd="15dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_menu"
@@ -296,17 +297,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/signOut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/teal_200"
-                android:text="Logout"
-                android:textColor="#ffff"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="258dp"
-                tools:layout_editor_absoluteY="538dp" />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
